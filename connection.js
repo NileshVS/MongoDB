@@ -4,17 +4,16 @@ mongoose.connect('mongodb://localhost/mongo-assignment', { useNewUrlParser: true
 .then( () => console.log('Successfully connected to database'))
 .catch((err) => console.log(err.message));
 
-let userSchema = mongoose.Schema({
-    tags: {type:Array},
-    date: {type: String},
+let userSchema = new mongoose.Schema({
+    tags:[String],
+    date: {type:Date, default:Date.now},
     name: {type:String},
     author: {type:String},
-    isPublished: {type:Boolean},
-    price:{type:Number}
+    isPublished: {type:Boolean}
 });
 
-let userModel = mongoose.model('mongoUserData', userSchema);
-
+let userModel = mongoose.model('UserData', userSchema);
+console.log(userModel.UserData);
 async function allUsers(){
     let result = await userModel.find();
     console.log(result); 
