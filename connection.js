@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/mongo-assignment', { useNewUrlParser: true
 //     isPublished: {type:Boolean}
 // });
 
-let userSchema = new mongoose.Schema({}, { strict: false });
+let userSchema = new mongoose.Schema({}, { strict: false }); //wihtout defining schema
 
 let userModel = mongoose.model('courses', userSchema);
 console.log(userModel.UserData);
